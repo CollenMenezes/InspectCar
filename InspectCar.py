@@ -107,7 +107,6 @@ def main():
 
 	else:
 		banner()
-		f.close()
 		print("[-] VOCÊ FOI BANIDO TEMPORARIAMENTE DO SERVIÇO! USE UMA VPN OU AGUARDE PARA USAR NOVAMENTE.")
 		sleep(5)
 		os.system("clear")
