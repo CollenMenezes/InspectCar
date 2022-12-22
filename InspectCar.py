@@ -70,22 +70,23 @@ def main():
 			tabela = site.find("table", class_="fipeTablePriceDetail")
 			tag_tr = tabela.find_all("tr")
 			tag_p = site.find_all("p")
-			f = open(placa + ".txt", "tw")
+			file = open(placa + ".txt", "tw")
 			for x in range(len(tag_tr)):
 				x = re.sub(":",": ", tag_tr[x].text.upper())
 				sleep(0.5)
 				print("[-] " + x)
-				f.write("[-] " + x + "\n")
+				file.write("[-] " + x + "\n")
 
 			sleep(0.5)
 			print("[-] " + tag_p[0].text.upper())
-			f.write("[-] " + tag_p[0].text.upper() + "\n")
+			file.write("[-] " + tag_p[0].text.upper() + "\n")
 
 			for i in range(len(tag_p)):
 				if "sistema" in tag_p[i].text:
 					sleep(0.5)
 					print("[-] " + tag_p[i].text.upper())
-					f.write("[-] " + tag_p[i].text.upper())
+					file.write("[-] " + tag_p[i].text.upper())
+					file.close()
 				else:
 					pass
 
@@ -94,7 +95,6 @@ def main():
 				if nova_busca == "Y":
 					main()
 				elif nova_busca == "N":
-					f.close()
 					banner()
 					print("[-] ENCERRANDO... SUAS PESQUISAM FORAM SALVAS EM UM ARQUIVO DE TEXTO NA PASTA DO PROGRAMA!")
 					sleep(5)
